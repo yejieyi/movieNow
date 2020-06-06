@@ -1,8 +1,14 @@
 $(document).ready(() => {
-    if (sessionStorage.getItem("user") !== null) {
-        alert("Already logged in. Please log out.");
+    if (sessionStorage.getItem("userId") == undefined) {
         window.location.href = "./";
+        alert("Please Login");
     }
+    $(".searchBtn").on('click', () => {
+        var searchText = $("#searchText").val();
+        var option = $("#option").val();
+        console.log(searchText);
+        window.location.href = ".?searchText=" + searchText + "&option=" + option;
+    })
     if (sessionStorage.getItem("userId") != null) {
         $(".session").empty();
         $(".session").append("<a href='/profile'>Profile</a>");
@@ -19,33 +25,41 @@ $(document).ready(() => {
             alert("Log out successfully");
         });
     }
-    $(".searchBtn").on('click', () => {
-        var searchText = $("#searchText").val();
-        var option = $("#option").val();
-        console.log(searchText);
-        window.location.href = ".?searchText=" + searchText + "&option=" + option;
-    })
-    $("#login").on('submit', () => {
+
+    var userId = sessionStorage.getItem("userId");
+    console.log(userId);
+
+    $.ajax({
+            url: "/users/" + userId,
+            method: 'get'
+        })
+        .done((data) => {
+            $('#name').val(data.name);
+            $('#email').val(data.email);
+            $('#phoneNumber').val(data.phoneNumber);
+            $('#password').val(data.password);
+        })
+        .fail((err) => {
+            console.log(err.responseText);
+        })
+
+
+    $(".editProfileBtn").on('click', () => {
         var user = {
+            id: userId,
             name: $("#name").val(),
-            password: $("#psw").val(),
             email: $("#email").val(),
-            phoneNumber: $("#phoneNumber").val()
+            phoneNumber: $("#phoneNumber").val(),
+            password: $("#password").val()
         };
         $.ajax({
             url: '/users',
-            method: 'post',
+            method: 'put',
             data: user
         }).done((data) => {
-            sessionStorage.setItem("userId", data._id);
-            $(".statusMessage").text("User added successfully!");
-            alert("Register successfully");
-            window.location.href = "./";
+            $(".statusMessage").text(data);
         }).fail((err) => {
-            alert("error register user");
-            console.log("hello");
             $(".statusMessage").text(err.responseText);
         });
-
     })
 })

@@ -1,9 +1,26 @@
 $(document).ready(() => {
     $(".searchBtn").on('click', () => {
         var searchText = $("#searchText").val();
+        var option = $("#option").val();
         console.log(searchText);
-        window.location.href = ".?searchText=" + searchText;
+        window.location.href = ".?searchText=" + searchText + "&option=" + option;
     })
+    if (sessionStorage.getItem("userId") != null) {
+        $(".session").empty();
+        $(".session").append("<a href='/profile'>Profile</a>");
+        $(".session1").empty();
+        $(".session1").append("<a href='/' class='logout'>Logout</a>");
+        $(".session2").empty();
+        $(".session2").append("<a href='/reviews'>Reviews</a>");
+        $(".session3").empty();
+        $(".session3").append("<a href='/favourites'>Favourites</a>");
+        $(".session4").empty();
+        $(".session4").append("<a href='/watchlist'>Watch List</a>");
+        $(".logout").on('click', () => {
+            sessionStorage.removeItem("userId");
+            alert("Log out successfully");
+        });
+    }
     var id = $.urlParam('id');
     console.log(id);
     $.ajax({
@@ -48,7 +65,7 @@ $(document).ready(() => {
                     }
 
                 }).done((data) => {
-                    loadSearch(old, key, list, data.cast);
+                    loadSearch(id, old, key, list, data.cast);
                 })
 
             })
@@ -66,7 +83,49 @@ $.urlParam = function (name) {
     return results[1] || 0;
 }
 
-function loadSearch(movie, key, recs, cast) {
+function addFavourite(movieid) {
+    var userId = sessionStorage.getItem("userId");
+    console.log(userId);
+    console.log(movieid);
+
+    var favourite = {
+        movieid: movieid,
+        user: userId
+    };
+    $.ajax({
+        url: '/favourites',
+        method: 'post',
+        data: favourite
+    }).done((data) => {
+        console.log(data);
+        alert("Added to Favourites");
+    }).fail((err) => {
+        console.log(err.responseText);
+    })
+}
+
+function addWatchList(movieid) {
+    var userId = sessionStorage.getItem("userId");
+    console.log(userId);
+    console.log(movieid);
+
+    var watchlist = {
+        movieid: movieid,
+        user: userId
+    };
+    $.ajax({
+        url: '/watchlist',
+        method: 'post',
+        data: watchlist
+    }).done((data) => {
+        alert("Added to Watch List");
+    }).fail((err) => {
+        console.log(err.responseText);
+    })
+}
+
+
+function loadSearch(id, movie, key, recs, cast) {
     console.log(movie);
     $('.photogallery').empty();
     var title = movie.title;
@@ -75,7 +134,7 @@ function loadSearch(movie, key, recs, cast) {
     var h3 = $("<h3>");
     var h5 = $("<h5>");
     var rate = $("<h5>");
-    var divr = $("<divl class='divr'>");
+    var divr = $("<div class='divr'>");
     h1.append(movie.title);
     h3.append(movie.tagline);
     h5.append("Released Date: " + movie.release_date);
@@ -85,6 +144,11 @@ function loadSearch(movie, key, recs, cast) {
     divr.append(h5);
     divr.append(rate);
     divr.append(movie.overview);
+    if (sessionStorage.getItem("userId") != null) {
+        divr.append("<br><a href='/addreviews?id=" + id + "&name=" + movie.title + "'>Write Reviews</a>");
+        divr.append("    <button class='addFavouritesBtn' onclick='addFavourite(" + id + ")'>Add to Favourites</button>");
+        divr.append("    <button class='addWatchListBtn' onclick='addWatchList(" + id + ")'>Add to Watch List</button>");
+    }
     article.append("<img src='https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + movie.poster_path + "' />");
     article.append(divr);
     if (key != null) {

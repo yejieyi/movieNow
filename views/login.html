@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/png" href="https://startme.com/favicon/moviestreamhd.org">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>MovieNow</title>
 </head>
@@ -15,12 +16,20 @@
         <ul>
             <li><a class="active" href="/">Discover</a></li>
             <li><a href="random">Random</a></li>
-            <li style="float: right"><a href="/register">Register</a></li>
-            <li style="float: right"><a href="/login">Login</a></li>
+            <li><a href="movietime">Current</a></li>
+            <li style="float: right" class="session1"><a href="/register">Register</a></li>
+            <li style="float: right" class="session3"></li>
+            <li style="float: right" class="session4"></li>
+            <li style="float: right" class="session2"></li>
+            <li style="float: right" class="session"><a href="/login">Login</a></li>
         </ul>
     </nav>
     <section class="search">
-        <input type="text" placeholder="Search for a movie" id="searchText">
+        <input type="text" placeholder="Search for a movie, person" id="searchText">
+        <select id="option">
+            <option value="movie">movie</option>
+            <option value="person">person</option>
+        </select>
         <button class="searchBtn"><i class="fa fa-search"></i></button>
     </section>
     <br>

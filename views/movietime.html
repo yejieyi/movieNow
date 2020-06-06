@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
     <link rel="shortcut icon" type="image/png" href="https://startme.com/favicon/moviestreamhd.org">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,13 +33,20 @@
         <button class="searchBtn"><i class="fa fa-search"></i></button>
     </section>
     <br>
+    <div class="wrapper">
+        <h1>Showing Time:</h1>
+        <select id="time">
+        </select>
+        <input id="searchBTN" type="button" value="Search">
+    </div>
     <br>
     <div class="photogallery">
+
     </div>
 
     <script src='../js/jquery-3.3.1.min.js'></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="../js/castdetails.js"></script>
+    <script src="../js/movietime.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
     <link rel="shortcut icon" type="image/png" href="https://startme.com/favicon/moviestreamhd.org">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,8 +15,8 @@
     <nav id="nologin">
         <ul>
             <li><a class="active" href="/">Discover</a></li>
+            <li><a class="cinema" href="/">Current Movies</a></li>
             <li><a href="random">Random</a></li>
-            <li><a href="movietime">Current</a></li>
             <li style="float: right" class="session1"><a href="/register">Register</a></li>
             <li style="float: right" class="session3"></li>
             <li style="float: right" class="session4"></li>
@@ -25,21 +25,20 @@
         </ul>
     </nav>
     <section class="search">
-        <input type="text" placeholder="Search for a movie, person" id="searchText">
-        <select id="option">
-            <option value="movie">movie</option>
-            <option value="person">person</option>
-        </select>
+        <input type="text" placeholder="Search for a movie" id="searchText">
         <button class="searchBtn"><i class="fa fa-search"></i></button>
     </section>
     <br>
     <br>
     <div class="photogallery">
+
     </div>
 
     <script src='../js/jquery-3.3.1.min.js'></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="../js/castdetails.js"></script>
+    <script src="../js/currentMovies.js"></script>
+
+
 </body>
 
 </html>

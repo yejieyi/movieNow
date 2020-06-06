@@ -1,7 +1,7 @@
 $(document).ready(() => {
-    if (sessionStorage.getItem("user") !== null) {
-        alert("Already logged in. Please log out.");
+    if (sessionStorage.getItem("userId") == undefined) {
         window.location.href = "./";
+        alert("Please Login");
     }
     if (sessionStorage.getItem("userId") != null) {
         $(".session").empty();
@@ -25,27 +25,26 @@ $(document).ready(() => {
         console.log(searchText);
         window.location.href = ".?searchText=" + searchText + "&option=" + option;
     })
-    $("#login").on('submit', () => {
-        var user = {
-            name: $("#name").val(),
-            password: $("#psw").val(),
-            email: $("#email").val(),
-            phoneNumber: $("#phoneNumber").val()
-        };
-        $.ajax({
-            url: '/users',
-            method: 'post',
-            data: user
-        }).done((data) => {
-            sessionStorage.setItem("userId", data._id);
-            $(".statusMessage").text("User added successfully!");
-            alert("Register successfully");
-            window.location.href = "./";
-        }).fail((err) => {
-            alert("error register user");
-            console.log("hello");
-            $(".statusMessage").text(err.responseText);
-        });
+    var userId = sessionStorage.getItem("userId");
+    console.log(userId);
 
-    })
+    $.ajax({
+            url: "/users/" + userId,
+            method: 'get'
+        })
+        .done((data) => {
+            loadUser(data);
+        })
+        .fail((err) => {
+            console.log(err.responseText);
+        })
 })
+
+function loadUser(data) {
+    $('.users').empty();
+    //    $(".users").append("User ID: " + data._id + "<br/>");
+    $(".users").append("Name: " + data.name + "<br/>");
+    $(".users").append("Password: " + data.password + "<br/>");
+    $(".users").append("Email: " + data.email + "<br/>");
+    $(".users").append("Phone Number: " + data.phoneNumber + "<br/>");
+}

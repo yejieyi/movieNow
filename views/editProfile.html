@@ -1,11 +1,12 @@
-<html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
     <link rel="shortcut icon" type="image/png" href="https://startme.com/favicon/moviestreamhd.org">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>MovieNow</title>
+    <meta charset="UTF-8">
+    <title>Movie Now</title>
 </head>
 
 <body>
@@ -35,11 +36,29 @@
     <br>
     <br>
     <div class="photogallery">
+        <h1>Edit Profile</h1>
+        <label for="name"> Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" pattern="^[0-9]{8}$" id="phoneNumber" name="phoneNumber" required>
+        <br/>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br/>
+        <button class="editProfileBtn">Save Changes</button>
+        <br/>
+        <a href="/profile">Back to Profile</a>
     </div>
 
+
+    <br>
+    <div class="statusMessage"></div>
     <script src='../js/jquery-3.3.1.min.js'></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="../js/castdetails.js"></script>
+    <script src="../js/editProfile.js"></script>
 </body>
 
 </html>

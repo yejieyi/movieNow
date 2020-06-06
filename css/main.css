@@ -28,7 +28,7 @@ nav li a {
     font-weight: 600;
     font-family: 'Source Sans Pro', Arial, sans-serif;
     padding: 14px 16px;
-    margin: 0 30px;
+    margin: 0 5px;
     text-decoration: none;
 }
 
@@ -41,8 +41,14 @@ nav li a:hover {
     padding-left: 15%;
     font-size: 17px;
     float: left;
-    width: 90%;
+    width: 80%;
     background: #f1f1f1;
+}
+
+#option {
+    float: left;
+    font-size: 17px;
+    padding: 10px;
 }
 
 .search button {
@@ -67,6 +73,13 @@ nav li a:hover {
 }
 
 .photogallery {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.wrapper {
+    display: block;
     margin: 0 auto;
     width: 80%;
 }
