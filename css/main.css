@@ -1,0 +1,143 @@
+nav ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 80%;
+
+}
+
+body {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    padding: 14px 16px;
+    margin: 0 30px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+.search input[type=text] {
+    padding: 10px;
+    padding-left: 15%;
+    font-size: 17px;
+    float: left;
+    width: 90%;
+    background: #f1f1f1;
+}
+
+.search button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    font-size: 17px;
+    border-left: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #111;
+}
+
+.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.photogallery {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#login {
+    font-size: 30px;
+}
+
+#login input[type=text],
+#login input[type=password],
+#login input[type=email],
+#login input[type=number] {
+    border: 1px solid #bbb;
+    height: 44px;
+    color: #333;
+    border-radius: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    text-indent: 0;
+}
+
+#login input[type=submit] {
+    font: 700 1.1em/1.2em 'Source Sans Pro', 'Arial', sans-serif;
+    background-image: none;
+    background-color: #01d277;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    margin: 0;
+    border-radius: 20px;
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    float: right;
+}
+
+#login input[type=submit]:hover {
+    background-color: #333;
+}
+
+.divr {
+    width: 80%;
+    float: right;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.images {
+    width: 33%;
+    float: left;
+}
+
+.cimages {
+    width: 19%;
+    float: left;
+}
+
+.nofloat {
+    clear: both;
+}

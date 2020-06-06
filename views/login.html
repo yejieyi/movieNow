@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>MovieNow</title>
+</head>
+
+<body>
+    <header style="text-align: center">
+        <h1 style="font-family: 'Barrio'"><a style="font-size: 60px" href="/">MovieNow</a></h1>
+    </header>
+    <nav id="nologin">
+        <ul>
+            <li><a class="active" href="/">Discover</a></li>
+            <li><a href="random">Random</a></li>
+            <li style="float: right"><a href="/register">Register</a></li>
+            <li style="float: right"><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <section class="search">
+        <input type="text" placeholder="Search for a movie" id="searchText">
+        <button class="searchBtn"><i class="fa fa-search"></i></button>
+    </section>
+    <br>
+    <div id="wrapper">
+        <h2 style="font-size: 30px">Login to your account</h2>
+        <p style="font-size: 25px">In order to use the editing and rating capabilities of TMDb, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple. Click here to get started.</p>
+        <form id="login">
+            <label for="uname">Username:</label>
+            <br>
+            <input type="text" placeholder="Enter Username" id="name" name="name" required>
+            <br>
+            <label for="psw">Password:</label>
+            <br>
+            <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+            <br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="statusMessage"></div>
+
+    <script src='../js/jquery-3.3.1.min.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

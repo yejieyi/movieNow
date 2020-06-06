@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>MovieNow</title>
+</head>
+
+<body>
+    <header style="text-align: center">
+        <h1 style="font-family: 'Barrio'"><a style="font-size: 60px" href="/">MovieNow</a></h1>
+    </header>
+    <nav id="nologin">
+        <ul>
+            <li><a class="active" href="/">Discover</a></li>
+            <li><a href="random">Random</a></li>
+            <li style="float: right"><a href="/register">Register</a></li>
+            <li style="float: right"><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <section class="search">
+        <input type="text" placeholder="Search for a movie" id="searchText">
+        <button class="searchBtn"><i class="fa fa-search"></i></button>
+    </section>
+    <br>
+    <div id="wrapper">
+        <h2 style="font-size: 30px">Sign up for an account</h2>
+        <p style="font-size: 25px">Signing up for an account is free and easy. Fill out the form below to get started. </p>
+        <form id="login">
+            <label for="uname">Username:</label>
+            <br>
+            <input type="text" placeholder="Enter Username" id="name" name="name" required>
+            <br>
+            <label for="psw">Password:</label>
+            <br>
+            <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+            <label for="cpsw">Password Confirm:</label>
+            <br>
+            <input type="password" placeholder="Enter Password" id="cpsw" name="cpsw" required>
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+            <br>
+            <label for="phone">Phone Number:</label>
+            <br>
+            <input type="text" pattern="^[0-9]{8}$" placeholder="Enter Phone Number" id="phoneNumber" name="phoneNumber" required>
+            <br>
+            <p style="font-size: 19px">By clicking the "Sign up" button below, I certify that I have read and agree to the MovieNow terms of use and privacy policy.</p>
+            <input id="addUserBtn" type="submit" value="Register">
+        </form>
+    </div>
+
+    <script src='../js/jquery-3.3.1.min.js'></script>
+    <script src="../js/validation.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/register.js"></script>
+</body>
+
+</html>
