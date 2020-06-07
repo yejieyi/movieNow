@@ -21,7 +21,7 @@ $(document).ready(() => {
             alert("Log out successfully");
         });
     }
-    var rnpage = Math.floor((Math.random() * 997) + 1);
+    var rnpage = Math.floor((Math.random() * 500) + 1);
     $.ajax({
         url: 'https://api.themoviedb.org/3/movie/popular?api_key=343f078c30e5ffe3c08cc3da703c7633&language=en-US&page=' + rnpage,
         method: 'get',
